@@ -1,20 +1,42 @@
-article
+body
   font-family: serif
+
+ul
+  list-style: none
+
+a
+  text-decoration: none
+  &:active, &:visited, &:link
+    color: black
+  &:hover
+    color: #4b0b28
+
+#business-card
+  position: absolute
+  opacity: 1
+  transition: opacity 1s ease-in
+  top: 10px
+  left: 20px
+  z-index: 10
+  font-size: 0.6em
+  .card-header
+    font-weight: bold
+    font-family: sans-serif
+    font-style: normal
+    margin-bottom: 7px
+
+#business-card.hidden
+  opacity: 0;
+  transition: opacity 0.3s ease-out
+
+article
   font-style: italic
   font-size: 2em
-
-  ul
-    list-style: none
-
-  a
-    text-decoration: none
-    &:hover, &:active, &:visited, &:link
-      color: black
 
   .has-audio
     display: none
 
   .first-page
 
-    h1, h2
-      margin: 0.2em 0
+    h1, h2, h3
+      margin: 0.1em 0

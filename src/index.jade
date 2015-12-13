@@ -8,12 +8,13 @@ html
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
   body
+    
 
-    article
 
-      section.first-page
-        h1 yyyounggg
-        h2 coleman moore
+    article#presentation
+    
+      div#business-card.hidden
+        div.card-header yyyounggg
         div
           a(target='_blank' href='https://soundcloud.com/yyyounggg') soundcloud
         div
@@ -22,30 +23,39 @@ html
           a(target='_blank' href='https://instagram.com/yyyounggg2') instagram
         div
           a(target='_blank' href='https://twitter.com/morecoleman') twitter
+          
+      section.first-page
+        h1 yyyounggg
+        h3 coleman moore
+        h3 production reel
+        div
+          span tap, swipe
 
-      section.stranger
+      section(data-bespoke-state="stranger", data-bespoke-fx-transition="fade")
         h2 stranger like you
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/stranger-like-you.mp3
+        svg(height="140", width="140")
+          ellipse(cx="200" cy="80" rx="100" ry="50" style="fill:yellow;stroke:purple;stroke-width:2")
         
-      section.better-l8
+      section(data-bespoke-state="better-l8")
         h2 better l8 than never
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/better-l8.mp3
         
-      section.way-we-were
+      section(data-bespoke-state="way-we-were")
         h2 the way we were
-        di.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/way-we-were.mp3
+        div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/way-we-were.mp3
 
-      section.nina
+      section(data-bespoke-state="nina")
         h2 waiting all night
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/waiting-all-night.mp3
         
-      section.nina
+      section(data-bespoke-state="nina")
         h2 making the move
         
-      section
+      section(data-bespoke-state="ever-gonna-sleep")
         h2 ever gonna sleep
         
-      section
+      section(data-bespoke-state="florence")
         h2 florence edith avery
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/florence-edith-avery.mp3
         

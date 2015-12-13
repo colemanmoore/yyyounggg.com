@@ -15,7 +15,6 @@ var pkg = require('./package.json'),
   del = require('del'),
   through = require('through'),
   opn = require('opn'),
-  ghpages = require('gh-pages'),
   path = require('path'),
   isDist = process.argv.indexOf('serve') === -1;
 
@@ -87,7 +86,7 @@ gulp.task('connect', ['build'], function() {
 });
 
 gulp.task('open', ['connect'], function (done) {
-  opn('http://localhost:8080', done);
+  opn('http://0.0.0.0:8080', done);
 });
 
 gulp.task('watch', function() {
@@ -101,7 +100,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('deploy', ['build'], function(done) {
-  ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
+  //TODO
 });
 
 gulp.task('build', ['js', 'html', 'css', 'images']);

@@ -21,8 +21,8 @@ module.exports = function() {
 
             currentTrack = new Howl({
               urls: [trackUrl],
-              buffer: true
-              //,onend: deck.next TODO
+              buffer: true,
+              onend: nextTrack
             });
 
             trackArray[trackUrl] = currentTrack;
@@ -45,6 +45,10 @@ module.exports = function() {
             if (callback) callback();
           });
         }
+      },
+
+      nextTrack = function() {
+        deck.next();
       },
 
       switchTracks = function(newUrl) {
@@ -82,4 +86,4 @@ module.exports = function() {
     ;
     deck.on('activate', activate);
   }
-}
+};

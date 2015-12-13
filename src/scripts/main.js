@@ -7,10 +7,12 @@ var bespoke = require('bespoke'),
   scale = require('bespoke-scale'),
   loop = require('bespoke-loop'),
   state = require('bespoke-state'),
-  audio = require('./bespoke-audio');
+  fx = require('bespoke-fx'),
+  audio = require('./bespoke-audio'),
+  custom = require('./custom');
 
 // Bespoke.js
-var deck = bespoke.from('article', [
+var deck = bespoke.from({ parent: '#presentation', slides: '#presentation > section' }, [
   classes(),
   keys(),
   touch(),
@@ -18,6 +20,6 @@ var deck = bespoke.from('article', [
   scale(),
   loop(),
   state(),
-  audio()
+  audio(),
+  custom()
 ]);
-
