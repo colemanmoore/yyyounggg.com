@@ -50,10 +50,11 @@ module.exports = (function() {
 
   return {
     switchTracks: function(newUrl, onEnd) {
+      var newTrack;
 
       // Nothing is playing, so just play the incoming track
       if (currentTrack == null) {
-        playTrack(newUrl, onEnd);
+        newTrack = playTrack(newUrl, onEnd);
         return;
       }
 
@@ -66,10 +67,10 @@ module.exports = (function() {
 
       // Otherwise, pause all and then play new track
       pauseTrack(currentTrack, function () {
-        playTrack(newUrl, onEnd);
+        newTrack = playTrack(newUrl, onEnd);
       });
 
-      return currentTrack;
+      return newTrack;
     },
 
     getTrackArray: function() {

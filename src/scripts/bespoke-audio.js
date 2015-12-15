@@ -21,9 +21,7 @@ module.exports = function(audioplayer, art) {
           // Get the URL from the markup. May be undefined
           var trackUrl = findAudio(e.slide);
 
-          var track = audioplayer.switchTracks(trackUrl, nextTrack);
-
-          art.visualizeMusic(track);
+          audioplayer.switchTracks(trackUrl, nextTrack);
         }
       }
     ;
