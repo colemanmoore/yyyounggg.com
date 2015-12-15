@@ -21,3 +21,8 @@ var deck = bespoke.from({ parent: '#presentation', slides: '#presentation > sect
   audio(audioplayer, art),
   custom()
 ]);
+
+var $ = require('jquery');
+$(document).ready(function() {
+  $('body').removeClass('loading');
+});
