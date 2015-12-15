@@ -1,7 +1,9 @@
-$ = require('jquery');
+var $ = require('jquery');
+var art = require('./art');
 
 module.exports = function() {
   return function(deck) {
+
     var
       HIDDEN_CLASS = 'hidden',
       businessCard = el = document.getElementById('business-card'),
@@ -28,8 +30,12 @@ module.exports = function() {
       } else {
         showBusinessCard();
       }
+
+      art.visualizeMusic();
     });
 
+
+    // Click events move forward except if they target a link
     document.addEventListener('click', function() {
       deck.next();
     });

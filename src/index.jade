@@ -8,8 +8,6 @@ html
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
   body
-    
-
 
     article#presentation
     
@@ -18,7 +16,7 @@ html
         div
           a(target='_blank' href='https://soundcloud.com/yyyounggg') soundcloud
         div
-          a(target='_blank' href='https://soundcloud.com/colemanmoorecomposer') film music
+          a(target='_blank' href='https://soundcloud.com/colemanmoorecomposer') film cues
         div
           a(target='_blank' href='https://instagram.com/yyyounggg2') instagram
         div
@@ -26,38 +24,40 @@ html
           
       section.first-page
         h1 yyyounggg
-        h3 coleman moore
-        h3 production reel
-        div
-          span tap, swipe
+        div.smaller production reel
 
-      section(data-bespoke-state="stranger", data-bespoke-fx-transition="fade")
-        h2 stranger like you
+      section(data-bespoke-state='stranger')
+        h2.track-title stranger like you
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/stranger-like-you.mp3
-        svg(height="140", width="140")
-          ellipse(cx="200" cy="80" rx="100" ry="50" style="fill:yellow;stroke:purple;stroke-width:2")
+        div.smaller yyyounggg with lara andersson  
         
-      section(data-bespoke-state="better-l8")
-        h2 better l8 than never
+      section(data-bespoke-state='better-l8')
+        h2.track-title better l8 than never
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/better-l8.mp3
+        div.smaller amber lynn shelves
         
-      section(data-bespoke-state="way-we-were")
-        h2 the way we were
+      section(data-bespoke-state='way-we-were')
+        h2.track-title the way we were
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/way-we-were.mp3
+        div.smaller ari afsar  
 
-      section(data-bespoke-state="nina")
-        h2 waiting all night
+      section(data-bespoke-state='waiting-all-night')
+        h2.track-title waiting all night
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/waiting-all-night.mp3
+        div.smaller nina farag  
         
-      section(data-bespoke-state="nina")
-        h2 making the move
+      section(data-bespoke-state='making-the-move')
+        h2.track-title making the move
+        div.smaller nina farag
         
-      section(data-bespoke-state="ever-gonna-sleep")
-        h2 ever gonna sleep
+      section(data-bespoke-state='ever-gonna-sleep')
+        h2.track-title ever gonna sleep
+        div.smaller ari afsar
         
-      section(data-bespoke-state="florence")
-        h2 florence edith avery
+      section(data-bespoke-state='florence')
+        h2.track-title florence edith avery
+        div.smaller rich & lux
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/florence-edith-avery.mp3
         
 
-    script(src='build/build.js')
+    script(src='build/build.js')    
