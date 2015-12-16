@@ -3,6 +3,7 @@ body
 
 body.loading
   visibility hidden
+  content 'loading'
 
 ul
   list-style none
@@ -13,6 +14,13 @@ a
     color black
   &:hover
     color #71103d
+
+#loading-message
+  position absolute
+  bottom 20px
+  width 100%
+  text-align center
+  font-size 0.9em
 
 #business-card
   position absolute
@@ -28,13 +36,14 @@ a
     font-style normal
     margin-bottom 7px
 
-#business-card.hidden
+#business-card.hidden, #loading-message.hidden
   opacity 0
   transition opacity 0.3s ease-out
 
 article
   font-style italic
   font-size 2em
+  text-align center
 
   .has-audio
     display none

@@ -1,11 +1,11 @@
 var bespoke = require('bespoke'),
   classes = require('bespoke-classes'),
   keys = require('bespoke-keys'),
-  touch = require('bespoke-touch'),
   scale = require('bespoke-scale'),
   loop = require('bespoke-loop'),
   state = require('bespoke-state'),
   audio = require('./bespoke-audio'),
+  touch = require('./bespoke-touch-custom'),
   custom = require('./custom');
 
 var audioplayer = require('./audio-player');
