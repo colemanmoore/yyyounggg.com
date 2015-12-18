@@ -5,8 +5,7 @@ var bespoke = require('bespoke'),
   loop = require('bespoke-loop'),
   state = require('bespoke-state'),
   audio = require('./bespoke-audio'),
-  touch = require('./bespoke-touch-custom'),
-  custom = require('./custom');
+  touch = require('./bespoke-touch-custom');
 
 var audioplayer = require('./audio-player');
 var art = require('./art');
@@ -18,8 +17,7 @@ var deck = bespoke.from({ parent: '#presentation', slides: '#presentation > sect
   scale(),
   loop(),
   state(),
-  audio(audioplayer, art),
-  custom()
+  audio(audioplayer, art)
 ]);
 
 var $ = require('jquery');

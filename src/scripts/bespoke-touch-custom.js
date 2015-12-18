@@ -22,8 +22,14 @@ module.exports = function(options) {
       if (Math.abs(delta) > 50) {
         deck[delta > 0 ? 'prev' : 'next']();
       } else {
-        deck.next();
+        new MouseEvent('click');
       }
     });
+
+    deck.parent.addEventListener('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      deck.next();
+    })
   };
 };
