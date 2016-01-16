@@ -30,6 +30,15 @@ module.exports = function(options) {
       e.stopPropagation();
       e.preventDefault();
       deck.next();
+    });
+
+    deck.parent.addEventListener('keydown', function(e) {
+      var key = e.keyCode || e.charCode;
+      if(key==8 || key==46) {
+        e.stopPropagation();
+        e.preventDefault();
+        deck.prev();
+      }
     })
   };
 };

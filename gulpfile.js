@@ -15,7 +15,6 @@ var pkg = require('./package.json'),
   del = require('del'),
   through = require('through'),
   opn = require('opn'),
-  path = require('path'),
   isDist = process.argv.indexOf('serve') === -1;
 
 gulp.task('js', ['clean:js'], function() {
