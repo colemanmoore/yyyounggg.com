@@ -12,7 +12,7 @@ html
 
   body.loading
 
-    article#presentation
+    article#production-deck
     
       div#loading-message.hidden
         div.smaller loading...
@@ -21,6 +21,11 @@ html
         h1 yyyounggg
         div.smaller production reel
           
+      section(data-bespoke-state='stranger')
+        h2.track-title stranger like you
+        div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/stranger-like-you.mp3
+        div.smaller yyyounggg with lara andersson
+
       section(data-bespoke-state='way-we-were')
         h2.track-title the way we were
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/way-we-were.mp3
@@ -41,14 +46,9 @@ html
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/i-am-me.mp3
         div.smaller charles devon  
           
-      section(data-bespoke-state='stranger')
-        h2.track-title stranger like you
-        div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/stranger-like-you.mp3
-        div.smaller yyyounggg with lara andersson
-          
       section(data-bespoke-state='ever-gonna-sleep')
         h2.track-title ever gonna sleep
         div.smaller ari afsar
         div.has-audio https://s3-us-west-2.amazonaws.com/yyy-audio/website/ever-gonna-sleep.mp3
-
+          
     script(src='build/build.js')    

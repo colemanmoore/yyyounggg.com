@@ -1,26 +1,13 @@
-var bespoke = require('bespoke'),
-  classes = require('bespoke-classes'),
-  keys = require('bespoke-keys'),
-  scale = require('bespoke-scale'),
-  loop = require('bespoke-loop'),
-  state = require('bespoke-state'),
-  audio = require('./bespoke-audio'),
-  touch = require('./bespoke-touch-custom');
+var
+  deck = require('./deck'),
+  util = require('./helpers'),
+  player = require('./audio-player');
 
-var audioplayer = require('./audio-player');
-var art = require('./art');
+deck({ parent: '#production-deck', slides: '#production-deck > section', player: player });
 
-var deck = bespoke.from({ parent: '#presentation', slides: '#presentation > section' }, [
-  classes(),
-  keys(),
-  touch(),
-  scale(),
-  loop(),
-  state(),
-  audio(audioplayer, art)
-]);
-
-var $ = require('jquery');
-$(document).ready(function() {
-  $('body').removeClass('loading');
+util.ready(function() {
+  var 
+    body = document.querySelectorAll('body')[0],
+    className = 'loading';
+  util.removeClass(body, className);
 });

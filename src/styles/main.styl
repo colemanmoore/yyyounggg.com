@@ -1,12 +1,22 @@
-// New to Stylus? Check out http://learnboost.github.io/stylus
-// Use modern CSS thanks to Autoprefixer: https://github.com/ai/autoprefixer
-
-// Import CSS from "node_modules" and "bower_components"
-// thanks to Stylus' "import css" and "paths" options
-
 @import 'normalizecss/normalize.css'
 
-// Style using Bespoke Classes: https://github.com/markdalgleish/bespoke-classes
+.yyy-page-parent
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  overflow: hidden
+  transition: background 1s ease
+
+.yyy-page-backdrop
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: -1
+  opacity: 0
 
 .bespoke-parent
   position: absolute

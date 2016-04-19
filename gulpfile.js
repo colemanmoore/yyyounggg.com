@@ -1,8 +1,6 @@
 'use strict';
 
-var pkg = require('./package.json'),
-  gulp = require('gulp'),
-  gutil = require('gulp-util'),
+var gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   rename = require('gulp-rename'),
   connect = require('gulp-connect'),
@@ -42,7 +40,7 @@ gulp.task('css', ['clean:css'], function() {
     .pipe(stylus({
       // Allow CSS to be imported from node_modules and bower_components
       'include css': true,
-      'paths': ['./node_modules', './bower_components']
+      'paths': ['./node_modules']
     }))
     .pipe(autoprefixer('last 2 versions', { map: false }))
     .pipe(isDist ? csso() : through())
@@ -93,8 +91,7 @@ gulp.task('watch', function() {
   gulp.watch('src/styles/**/*.styl', ['css']);
   gulp.watch('src/images/**/*', ['images']);
   gulp.watch([
-    'src/scripts/**/*.js',
-    'bespoke-theme-*/dist/*.js' // Allow themes to be developed in parallel
+    'src/scripts/**/*.js'
   ], ['js']);
 });
 

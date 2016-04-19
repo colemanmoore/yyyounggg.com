@@ -1,5 +1,6 @@
-var Howl = require('howler').Howl;
-var $ = require('jquery');
+var
+  Howl = require('howler').Howl,
+  util = require('./helpers');
 
 module.exports = (function() {
 
@@ -12,13 +13,14 @@ module.exports = (function() {
 
       if (!trackArray[trackUrl]) {
 
-        $('#loading-message').removeClass('hidden');
+        util.trigger(document, 'yyyTrackLoad');
+
         currentTrack = new Howl({
           urls: [trackUrl],
           buffer: true,
           onend: onEnd,
           onplay: function() {
-            $('#loading-message').addClass('hidden');
+            util.trigger(document, 'yyyTrackPlay');
           }
         });
 
