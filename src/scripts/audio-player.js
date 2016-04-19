@@ -8,20 +8,18 @@ module.exports = (function() {
     currentTrack,
     trackArray = {};
 
-  var playTrack = function(trackUrl, onEnd) {
+  var playTrack = function(trackUrl, beforePlay, onPlay, onEnd) {
     if (!!trackUrl) {
 
       if (!trackArray[trackUrl]) {
 
-        util.trigger(document, 'yyyTrackLoad');
+        beforePlay();
 
         currentTrack = new Howl({
           urls: [trackUrl],
           buffer: true,
-          onend: onEnd,
-          onplay: function() {
-            util.trigger(document, 'yyyTrackPlay');
-          }
+          onplay: onPlay,
+          onend: onEnd
         });
 
         trackArray[trackUrl] = currentTrack;
@@ -56,12 +54,12 @@ module.exports = (function() {
   };
 
   return {
-    switchTracks: function(newUrl, onEnd) {
+    switchTracks: function(newUrl, beforePlay, onPlay, onEnd) {
       var newTrack;
 
       // Nothing is playing, so just play the incoming track
       if (currentTrack == null) {
-        newTrack = playTrack(newUrl, onEnd);
+        newTrack = playTrack(newUrl, beforePlay, onPlay, onEnd);
         return;
       }
 
@@ -74,7 +72,7 @@ module.exports = (function() {
 
       // Otherwise, pause all and then play new track
       pauseTrack(currentTrack, function () {
-        newTrack = playTrack(newUrl, onEnd);
+        newTrack = playTrack(newUrl, beforePlay, onPlay, onEnd);
       });
 
       return newTrack;

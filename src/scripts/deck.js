@@ -76,12 +76,12 @@ module.exports = function(opts) {
    */
 
   var addClass = function(el, cls) {
-      el.classList.add('bespoke-' + cls);
+      el.classList.add('yyy-page-' + cls);
     },
 
     removeClass = function(el, cls) {
       el.className = el.className
-        .replace(new RegExp('bespoke-' + cls +'(\\s|$)', 'g'), ' ')
+        .replace(new RegExp('yyy-page-' + cls +'(\\s|$)', 'g'), ' ')
         .trim();
     },
 
@@ -117,7 +117,7 @@ module.exports = function(opts) {
 
     wrap = function(element) {
       var wrapper = document.createElement('div');
-      wrapper.className = 'bespoke-scale-parent';
+      wrapper.className = 'yyy-scale-parent';
       element.parentNode.insertBefore(wrapper, element);
       wrapper.appendChild(element);
       return wrapper;
@@ -169,7 +169,7 @@ module.exports = function(opts) {
    * Deck state
    */
   var modifyState = function(method, event) {
-    var attr = event.slide.getAttribute('data-bespoke-state');
+    var attr = event.slide.getAttribute('data-state');
 
     if (attr) {
       attr.split(' ').forEach(function(state) {
