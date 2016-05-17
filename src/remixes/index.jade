@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='music production reel - coleman moore')
+    title yyyounggg
+
+    link(rel='stylesheet', type='text/css', href='../build/build.css')
+
+    //include ../includes/ga
+      
+  body
+    
+    article#remixes
+      div remixed by yyyounggg
+
+        - var mp3prefix = 'https://s3-us-west-2.amazonaws.com/yyy-audio/website/remixes/'
+        - var imgprefix = '../images/remix-thumbs/'
+          
+        mixin remix(params)
+          div.remix-tile(data-href = mp3prefix + params.href)
+            div.remix-img-square
+              img(src = imgprefix + params.img, height='100%')
+            span.title !{params.title}
+
+      div#remix-grid
+        +remix({'href': 'shower.mp3', 'img': 'becky-g.jpg', 'title': 'Shower'})
+        +remix({'href': 'minimix.mp3', 'img': 'skintight.jpg', 'title': 'MINIMIX 2015'})
+        +remix({'href': '1-2-step.mp3', 'img': 'ciara.jpg', 'title': '1, 2 Step'})
+        +remix({'href': 'wildest-dreams.mp3', 'img': 'wildestdreams.jpg', 'title': 'Wildest Dreams'})
+        +remix({'href': 'clarity.mp3', 'img': 'foxes.jpg', 'title': 'Clarity'})
+        +remix({'href': 'fancy.mp3', 'img': 'iggy.jpg', 'title': 'Fancy'})
+        +remix({'href': 'wanegbt.mp3', 'img': 'taylorshadow.jpg', 'title': 'WANEGBT'})
+        +remix({'href': 'wrecking-ball.mp3', 'img': 'wrecking.jpg', 'title': 'Wrecking Ball'})
+        +remix({'href': 'cantstopgoingtostripclubs.mp3', 'img': 'stripper_booty.jpg', 'title': 'We Can&#39;t Stop'})
+        +remix({'href': 'i-love-it.mp3', 'img': 'icona.jpg', 'title': 'I Love It'})
+        +remix({'href': 'tennis-court.mp3', 'img': 'classclown.jpg', 'title': 'Tennis Court'})
+      
+    script(src='../build/build.js') 

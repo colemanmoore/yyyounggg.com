@@ -5,18 +5,20 @@ module.exports = function(player) {
     var
       HREF_ATTRIBUTE = 'data-href',
       HIDDEN_CLASS = 'hidden',
-      LOADING_MSG_ID = 'loading-message';
+      LOADING_MSG_ID = 'loading-message',
+      TRACK_LOAD_EVENT = 'yyyTrackLoad',
+      TRACK_PLAY_EVENT = 'yyyTrackPlay';
 
     function nextSlide() {
       deck.next();
     }
 
     function triggerTrackLoad() {
-      util.trigger(document, 'yyyTrackLoad');
+      util.trigger(document, TRACK_LOAD_EVENT);
     }
 
     function triggerTrackPlay() {
-      util.trigger(document, 'yyyTrackPlay');
+      util.trigger(document, TRACK_PLAY_EVENT);
     }
 
     function activate(e) {
@@ -27,13 +29,13 @@ module.exports = function(player) {
 
       var loadingMsg = document.getElementById(LOADING_MSG_ID);
 
-      document.addEventListener('yyyTrackLoad', function() {
+      document.addEventListener(TRACK_LOAD_EVENT, function() {
         if (loadingMsg) {
           util.removeClass(loadingMsg, HIDDEN_CLASS);
         }
       });
 
-      document.addEventListener('yyyTrackPlay', function() {
+      document.addEventListener(TRACK_PLAY_EVENT, function() {
         if (loadingMsg) {
           util.addClass(loadingMsg, HIDDEN_CLASS)
         }
