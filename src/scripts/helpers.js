@@ -28,11 +28,22 @@ module.exports = (function() {
     el.dispatchEvent(event);
   }
 
+  function addEventListener(el, eventName, handler) {
+    if (el.addEventListener) {
+      el.addEventListener(eventName, handler);
+    } else {
+      el.attachEvent('on' + eventName, function() {
+        handler.call(el);
+      });
+    }
+  }
+
   return {
     ready: ready,
     addClass: addClass,
     removeClass: removeClass,
-    trigger: trigger
+    trigger: trigger,
+    addEventListener: addEventListener
   }
 
 })();

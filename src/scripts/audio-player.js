@@ -1,6 +1,4 @@
-var
-  Howl = require('howler').Howl,
-  util = require('./helpers');
+var Howl = require('howler').Howl;
 
 module.exports = (function() {
 
@@ -8,18 +6,23 @@ module.exports = (function() {
     currentTrack,
     trackArray = {};
 
-  var playTrack = function(trackUrl, beforePlay, onPlay, onEnd) {
+  function playTrack(trackUrl, beforePlay, onPlay, onEnd) {
     if (!!trackUrl) {
 
       if (!trackArray[trackUrl]) {
 
-        beforePlay();
+        if (beforePlay) {
+          beforePlay();
+        }
 
         currentTrack = new Howl({
           urls: [trackUrl],
           buffer: true,
           onplay: onPlay,
-          onend: onEnd
+          onend: onEnd,
+          onloaderror: function(e) {
+            console.log('load error ' + e)
+          }
         });
 
         trackArray[trackUrl] = currentTrack;
@@ -34,24 +37,30 @@ module.exports = (function() {
       return currentTrack;
 
     }
-  };
+  }
 
-  var pauseTrack = function(track, callback) {
+  function pauseTrack(track, callback) {
     if (!!track) {
 
       track.fade(track.volume(), 0.0, 200, function() {
         track.pause();
 
         // Just to be safe
-        var keys = Object.keys(trackArray);
-        keys.forEach(function(k) {
+        Object.keys(trackArray).forEach(function(k) {
           trackArray[k].pause();
         });
 
         if (callback) callback();
       });
     }
-  };
+  }
+
+  function setPositionsToZero() {
+    console.log('set positions to zero')
+    Object.keys(trackArray).forEach(function(k) {
+      trackArray[k].stop();
+    });
+  }
 
   return {
     switchTracks: function(newUrl, beforePlay, onPlay, onEnd) {
@@ -64,7 +73,7 @@ module.exports = (function() {
       }
 
       // Switching to a slide with no audio
-      if (newUrl === undefined) {
+      if (!newUrl) {
         pauseTrack(currentTrack);
         currentTrack = null;
         return;
@@ -74,13 +83,13 @@ module.exports = (function() {
       pauseTrack(currentTrack, function () {
         newTrack = playTrack(newUrl, beforePlay, onPlay, onEnd);
       });
-
-      return newTrack;
     },
 
     getTrackArray: function() {
       return trackArray;
-    }
+    },
+
+    reset: setPositionsToZero
   };
 
 })();
