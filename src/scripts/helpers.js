@@ -22,6 +22,13 @@ module.exports = (function() {
       el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
   }
 
+  function hasClass(el, className) {
+    if (el.classList)
+      el.classList.contains(className);
+    else
+      new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+  }
+
   function trigger(el, string) {
     var event = document.createEvent('Event');
     event.initEvent(string, true, true);
@@ -42,6 +49,7 @@ module.exports = (function() {
     ready: ready,
     addClass: addClass,
     removeClass: removeClass,
+    hasClass: hasClass,
     trigger: trigger,
     addEventListener: addEventListener
   }

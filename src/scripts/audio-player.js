@@ -1,5 +1,3 @@
-var Howl = require('howler').Howl;
-
 module.exports = (function() {
 
   var
@@ -56,7 +54,6 @@ module.exports = (function() {
   }
 
   function setPositionsToZero() {
-    console.log('set positions to zero')
     Object.keys(trackArray).forEach(function(k) {
       trackArray[k].stop();
     });

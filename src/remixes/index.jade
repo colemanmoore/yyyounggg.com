@@ -11,18 +11,17 @@ html
     include ../includes/ga
       
   body
-    
     article#remixes
       div remixed by yyyounggg
-
-        - var mp3prefix = 'https://s3-us-west-2.amazonaws.com/yyy-audio/website/remixes/'
-        - var imgprefix = '../images/remix-thumbs/'
-          
-        mixin remix(params)
-          div.remix-tile(data-href = mp3prefix + params.href)
-            div.remix-img-square
-              img(src = imgprefix + params.img, height='100%')
-            span.title !{params.title}
+        
+      - var mp3prefix = 'https://s3-us-west-2.amazonaws.com/yyy-audio/website/remixes/'
+      - var imgprefix = '../images/remix-thumbs/'
+        
+      mixin remix(params)
+        div.remix-tile(data-href = mp3prefix + params.href)
+          div.remix-img-square
+            img(src = imgprefix + params.img, height='100%')
+          span.title !{params.title}
 
       div#remix-grid
         +remix({'href': 'shower.mp3', 'img': 'becky-g.jpg', 'title': 'Shower'})
